@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Test</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Test</h1>
+    <p id="message">Loading cookies...</p>
+    <script>
+        // JavaScript to fetch and display the message from the server
+        fetch('/set-cookies')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('message').textContent = text;
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = 'Error fetching cookies.';
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
